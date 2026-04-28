@@ -43,12 +43,15 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    testImplementation platform('org.testcontainers:testcontainers-bom:2.0.3')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
     testImplementation 'org.springframework.security:spring-security-test'
-    testRuntimeOnly 'com.h2database:h2'
+    testImplementation 'org.testcontainers:testcontainers-junit-jupiter'
+    testImplementation 'org.testcontainers:testcontainers-postgresql'
 }
 
 test {
