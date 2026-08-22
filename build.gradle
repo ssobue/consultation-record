@@ -114,3 +114,13 @@ tasks.named('spotbugsTest') {
         html.outputLocation = layout.buildDirectory.file('reports/spotbugs/test.html')
     }
 }
+
+tasks.register('prepareSonarLibraries', Sync) {
+    from(configurations.compileClasspath) {
+        into 'main'
+    }
+    from(configurations.testCompileClasspath) {
+        into 'test'
+    }
+    into layout.buildDirectory.dir('sonar-libraries')
+}
