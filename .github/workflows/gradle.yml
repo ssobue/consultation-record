@@ -5,10 +5,10 @@ name: Gradle CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 concurrency:
   group: gradle-ci-${{ github.event.pull_request.number || github.ref }}
