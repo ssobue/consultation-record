@@ -1,6 +1,16 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 import net.ltgt.gradle.errorprone.CheckSeverity
 
+buildscript {
+    dependencies {
+        constraints {
+            classpath('org.apache.commons:commons-lang3:3.18.0') {
+                because 'CVE-2025-48924 affects the Spring Boot plugin transitive dependency before 3.18.0'
+            }
+        }
+    }
+}
+
 plugins {
     id 'java'
     id 'pmd'
